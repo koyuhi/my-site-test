@@ -1,0 +1,75 @@
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>私のサイト</title>
+    <!-- <link rel="canonical" href="https://popo-design.net/template/"> -->
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta property="og:title" content="" />
+<meta property="og:type" content="website" /> 
+<meta property="og:url" content="" />
+<meta property="og:image" content="" />
+<link rel="canonical" href="https://popo-design.net/template-pro/">
+<!-- CSSを読み込む -->
+<link rel="stylesheet" media="all" href="{{ site.baseurl }}/css/sanitize.css" /><!-- リセットCSS -->
+<link rel="stylesheet" media="all" href="{{ site.baseurl }}/css/vegas.min.css" />
+<link rel="stylesheet"  href="{{ site.baseurl }}/css/aos.css" />
+<link rel="stylesheet" media="all" href="{{ site.baseurl }}/css/style.css" /><!-- 上書きCSS -->
+<!-- jsファイルを読み込む -->
+<script src="{{ site.baseurl }}/js/jquery-3.6.0.min.js"></script>
+<script src="{{ site.baseurl }}/js/vegas.min.js"></script>
+<script src="{{ site.baseurl }}/js/aos.js"></script>
+<script src="{{ site.baseurl }}/js/style.js"></script>
+<!-- 
+▼ テンプレどん
+https://popo-design.net/template/?utm_source=chatgpt.com
+-->
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="{{ site.baseurl }}/img/favicon.png">
+    
+</head>
+<body>
+<header>    
+<div class="container">
+<div class="row">
+    <div class="col span-12 header">
+        <div class="sitetitle"><a href="{{ site.baseurl }}/">食卓と趣味のあいだ</a></div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col span-12">
+        <nav>
+          <div id="open"></div>
+          <div id="close"></div>   
+            <div id="navi">
+        <ul>
+            <li><a href="{{ site.baseurl }}/">ホーム</a></li>
+            <li><a href="{{ site.baseurl }}/#1">おいしいよ</a></li>
+            <li><a href="{{ site.baseurl }}/#2">お知らせ</a></li>
+            <li><a href="{{ site.baseurl }}/subpage.html">サブページ</a></li>
+            <li><a href="#sns">お問い合わせ</a></li>
+         </ul>
+             </div>
+        </nav>
+    
+        </div>
+    </div>
+    </div>
+</header>
+
+    {% if page.url == "/" or page.url == "/my-site-test/" %}
+    <!-- トップページ用処理 -->
+    <div id="mainimg"><!-- 画像はjs/sytle.js内 -->
+        <h1 data-aos="fade-in">{{ page.mainimg_title | default:ご飯と楽しみ }}</h1>
+    </div>
+    {% else %}
+    <!-- その他ページ -->
+    <div class="subimg">
+        <h1>{{ page.mainimg_title | default:サブページ }}</h1>
+    </div>
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="{{ site.baseurl }}/">ホーム</a> > {{ page.title}}</li>
+        </ul>
+    </div>
+    {% endif %}
